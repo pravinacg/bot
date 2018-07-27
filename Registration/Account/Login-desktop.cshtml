@@ -21,8 +21,7 @@
         }
 
     }
-    // If this is a POST request, validate and process data
-
+   
 <div class="container">
     <div class="row">
         <div class="mob-logo-wrapper">
@@ -91,8 +90,10 @@
                             }
 
                         }
-                        <form class="signin" method="post" id="signin-form" name="register">
+
+                        <form  class="signin" id="signin-form" method="post">
                             @AntiForgery.GetHtml()
+                            
                             <legend id="legend-signin">Sign In</legend>
 
                             <div class="form-group">
