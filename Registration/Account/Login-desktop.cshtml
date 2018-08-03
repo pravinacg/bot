@@ -2,26 +2,44 @@
 @section Scripts {
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="custom-style.css" type="text/css" />*@
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="custom-style.css" type="text/css" />
+    <script type="text/javascript" src="custom.js"></script>
+
+
+}
+<style>
+    input.transparent-input {
+        background-color: rgba(0,0,0,0) !important;
+        border: none !important;
+    }
+</style>
+@{
+    Layout = "~/_SiteLayoutLogin.cshtml";
+    Page.Title = "Log in";
+
+    // Initialize general page variables
+    var email = "";
+    var password = "";
+    var rememberMe = false;
+
+    var returnUrl = Request.QueryString["ReturnUrl"];
+    if (returnUrl.IsEmpty())
+    {
+        // Some external login providers always require a return URL value
+        returnUrl = Href("~/");
+    }
+
 }
 
-@{
-        Layout = "~/_SiteLayoutLogin.cshtml";
-        Page.Title = "Log in";
-
-        // Initialize general page variables
-        var email = "";
-        var password = "";
-        var rememberMe = false;
-
-        var returnUrl = Request.QueryString["ReturnUrl"];
-        if (returnUrl.IsEmpty())
-        {
-            // Some external login providers always require a return URL value
-            returnUrl = Href("~/");
-        }
-
-    }
-   
 <div class="container">
     <div class="row">
         <div class="mob-logo-wrapper">
@@ -44,9 +62,13 @@
                             <p>Hello There,</p>
                             <p>Welcome to Sogeti</p>
                         </div>
-                        @Html.ValidationSummary("Log in was unsuccessful. Please correct the errors and try again.", excludeFieldErrors: true, htmlAttributes: null)
                         @if (IsPost && Request.Form.Count <= 4)
                         {
+
+                            email = Request.Form["email"];
+                            password = Request.Form["password"];
+                            rememberMe = Request.Form["rememberMe"].AsBool();
+
 
                             // Setup validation
                             Validation.RequireField("email", "You must specify an email address.");
@@ -58,6 +80,7 @@
                             errorMessage: "Password must be at least 6 characters"));
 
                             AntiForgery.Validate();
+
                             // is this an external login request?
                             string provider = Request.Form["provider"];
                             if (!provider.IsEmpty())
@@ -67,9 +90,6 @@
                             }
                             else if (Validation.IsValid())
                             {
-                                email = Request.Form["email"];
-                                password = Request.Form["password"];
-                                rememberMe = Request.Form["rememberMe"].AsBool();
 
                                 if (WebSecurity.UserExists(email) && WebSecurity.GetPasswordFailuresSinceLastSuccess(email) > 4 && WebSecurity.GetLastPasswordFailureDate(email).AddSeconds(60) > DateTime.UtcNow)
                                 {
@@ -86,29 +106,30 @@
                                 else
                                 {
                                     ModelState.AddFormError("The user name or password provided is incorrect.");
+                                    @Html.ValidationSummary("Log in was unsuccessful. Please correct the errors and try again.", excludeFieldErrors: true, htmlAttributes: null)
+
                                 }
                             }
 
                         }
 
-                        <form  class="signin" id="signin-form" method="post">
+                        <form class="signin" id="signin-form" method="post">
+
                             @AntiForgery.GetHtml()
-                            
+
                             <legend id="legend-signin">Sign In</legend>
 
                             <div class="form-group">
-                                <label for="email" @if (!ModelState.IsValidField("email"))
-                                { <text> class="form-label" </text> }>Email address</label>
-                                <input type="text" class="form-control" id="email" name="email" inputmode="email" value="@email" @Validation.For("email") />
+                                <label for="email">Email address</label>
+                                <input type="text" class="form-control transparent-input" id="email" name="email" value="@email" @Validation.For("email") />
                                 @* Write any user name validation errors to the page *@
                                 @Html.ValidationMessage("email")
 
                             </div>
                             <hr />
                             <div class="form-group">
-                                <label for="password" @if (!ModelState.IsValidField("password"))
-                                { <text> class="form-label" </text> }>Password</label>
-                                <input type="password" class="form-control" id="password" name="password" @Validation.For("password") />
+                                <label for="password" @if (!ModelState.IsValidField("password")) { <text> class="form-label" </text> }>Password</label>
+                                <input type="password" class="form-control transparent-input" id="password" name="password" @Validation.For("password") />
                                 @* Write any password validation errors to the page *@
                                 @Html.ValidationMessage("password")
                             </div>
@@ -117,15 +138,12 @@
                             </div>
                             <div class="forgot-password-container">
                                 <p class="forgot-password-wrapper">
-                                    <a href="ForgotPassword.html">Forgot Password ?</a>
+                                    <a href="~/Account/ForgotPassword.cshtml">Forgot Password ?</a>
                                 </p>
                             </div>
                         </form>
+                   </div>
 
-                        
-
-                    </div>
-                    
                     <div class="separator"></div>
                     <div class="col-md-6 col-sm-6" id="sign-up">
                         <div id="sign-up-heading">
@@ -135,10 +153,9 @@
                         @AntiForgery.GetHtml()
 
                         <h1>Register </h1>
-                        @{
-
-
-
+                        @if (IsPost && Request.Form.Count > 4)
+                        {
+                            @Html.ValidationSummary("Account creation was unsuccessful. Please correct the errors and try again.", excludeFieldErrors: true, htmlAttributes: null)
 
                             // If this is a POST request, validate and process data
                             if (IsPost)
@@ -182,7 +199,7 @@
                                     if (user == null)
                                     {
                                         // Insert email into the profile table
-                                        db.Execute("INSERT INTO UserProfile (Email) VALUES (@0)", email);
+                                        db.Execute("INSERT INTO UserProfile ([Email],[password],[firstname]) VALUES ('" + email + "','" + password + "','" + name + "')");
 
                                         // Create and associate a new entry in the membership database.
                                         // If successful, continue processing the request
@@ -223,43 +240,47 @@
                                     else
                                     {
                                         // User already exists
+                                        @Html.ValidationSummary(false)
                                         ModelState.AddFormError("Email address is already in use.");
+                                        @Html.ValidationSummary("Email address is already in use.", excludeFieldErrors: true, htmlAttributes: null)
+
                                     }
                                 }
                             }
                         }
-                        @Html.ValidationSummary("Account creation was unsuccessful. Please correct the errors and try again.", excludeFieldErrors: true, htmlAttributes: null)
 
                         <form method="post" class="signup" id="signup-form">
-                            <div class="form-group">
-                                <label for="Name" @if (!ModelState.IsValidField("name")) { <text> class="form-label" </text> }>Name</label>
-                                <input type="text" class="form-control" name="name" required>
-                                @Html.ValidationMessage("Name")
-                            </div>
-                            <hr />
-                            <div class="form-group">
-                                <label for="email1" @if (!ModelState.IsValidField("email1")) { <text> class="form-label" </text> }>Email Address</label>
-                                <input type="text" id="email1" class="form-control" name="email1" required>
-                                @Html.ValidationMessage("email1")
+                            <asp:Panel runat="server" DefaultButton="SignUp">
+                                <div class="form-group">
+                                    <label for="Name" @if (!ModelState.IsValidField("name")) { <text> class="form-label" </text> }>Name</label>
+                                    <input type="text" class="form-control transparent-input" name="name" required>
+                                    @Html.ValidationMessage("Name")
+                                </div>
+                                <hr />
+                                <div class="form-group">
+                                    <label for="email1" @if (!ModelState.IsValidField("email1")) { <text> class="form-label" </text> }>Email Address</label>
+                                    <input type="text" id="email1" class="form-control transparent-input" name="email1" required>
+                                    @Html.ValidationMessage("email1")
 
-                            </div>
-                            <hr />
-                            <div class="form-group">
-                                <label for="Password1" @if (!ModelState.IsValidField("password")) { <text> class="form-label" </text> }>Password</label>
-                                <input type="password" id="password1" class="form-control" @Validation.For("password1") name="Password1" required>
-                                @Html.ValidationMessage("password1")
+                                </div>
+                                <hr />
+                                <div class="form-group">
+                                    <label for="Password1" @if (!ModelState.IsValidField("password1")) { <text> class="form-label" </text> }>Password</label>
+                                    <input type="password" id="password1" class="form-control transparent-input" @Validation.For("password1") name="Password1" required>
+                                    @Html.ValidationMessage("password1")
 
-                            </div>
-                            <hr />
-                            <div class="form-group">
-                                <label for="ConfirmPassword" @if (!ModelState.IsValidField("confirmPassword")) { <text> class="form-label" </text> }>Confirm Password</label>
-                                <input type="password" id="confirmPassword" class="form-control" name="ConfirmPassword" @Validation.For("confirmPassword") required>
-                                @Html.ValidationMessage("confirmPassword")
+                                </div>
+                                <hr />
+                                <div class="form-group">
+                                    <label for="ConfirmPassword" @if (!ModelState.IsValidField("confirmPassword")) { <text> class="form-label" </text> }>Confirm Password</label>
+                                    <input type="password" id="confirmPassword" class="form-control transparent-input" name="ConfirmPassword" @Validation.For("confirmPassword") required>
+                                    @Html.ValidationMessage("confirmPassword")
 
-                            </div>
-                            <div class="form-group">
-                                <input type="submit" name="SignUp" value="Sign Up" />
-                            </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" id="SignUp" name="SignUp" value="Sign Up" />
+                                </div>
+                            </asp:Panel>
                         </form>
 
 
@@ -276,4 +297,3 @@
 
 
 
-                            

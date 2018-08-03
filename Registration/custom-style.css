@@ -1,11 +1,33 @@
-*{
-	box-sizing: border-box;
+/** {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+    color: floralwhite;
+    display: block;
+}*/
+
+.validation-summary-errors
+{
+    
 }
 
+.float-left {
+    float: left !important;
+}
+
+.float-right {
+    float: right !important;
+}
+
+.float-right {
+    box-sizing: border-box;
+    align-content: flex-end;
+}
 .row::after {
-  content: "";
-  clear: both;
-  display: table;
+    content: "";
+    clear: both;
+    display: table;
 }
 
 .bg-img {
@@ -14,6 +36,11 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;  
+}
+.form {
+    padding: 20px 0;
+    width: 80%;
+    margin-bottom: 0px;
 }
 
 form.signin {
@@ -26,15 +53,29 @@ form.signup {
 	width: 80%;
 }
 
+validation-summary-errors ul {
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+    color: floralwhite;
+}
+
+validation-summary-errors li {
+    display: inline;
+    list-style: none;
+    margin: 0;
+}
+
+
 form.signin input[type="submit"] {
-	width: 100%;
-	height: 50px;
-	background-color: #260F46;
-	color: #FFFFFF;
-	border: 0px;
-	font-size: 14px;
-	cursor: pointer;
-	letter-spacing: 1px;
+    width: 100%;
+    height: 50px;
+    /*background-color: #260F46;*/
+    color: #FFFFFF;
+    background-color: rgba(0,0,0,0) !important;
+    font-size: 14px;
+    cursor: pointer;
+    letter-spacing: 1px;
 }
 
 form.signup input[type="submit"] {
@@ -51,16 +92,16 @@ form.signup input[type="submit"] {
 .form-control:focus 
 { 
 	border-color: inherit; 
-	-webkit-box-shadow: none; 
-	box-shadow: none;
+	-webkit-box-shadow: none !important; 
+	box-shadow: none !important;
 }
 
 .form-control{
-	background-color: transparent;
+	background-color: transparent !important;
 	border: 0px;
 	border-radius: 0px;
 	outline: none;
-	color: #FFFFFF;
+	color: #FFFFFF !important;
 	box-shadow: none;
 	padding-left: 15px;
 }
@@ -99,6 +140,7 @@ hr{
 	width: 80%;
 	display: table;
 	margin: 0 auto;
+    color:white;
 }
 
 .signin-container{
