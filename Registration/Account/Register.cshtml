@@ -75,6 +75,15 @@
             <div class="row text-white">
                 <div class="col-sm-10 offset-sm-1 text-center">
                     <div class="info-form">
+                        @AntiForgery.GetHtml()
+                        @* If at least one validation error exists, notify the user *@
+                        @Html.ValidationSummary("Registration was unsuccessful. Please correct the errors and try again.", excludeFieldErrors: true, htmlAttributes: null)
+
+                        <fieldset>
+                            <legend>Registration Form</legend>
+
+                       </fieldset>
+
                         <form method="post" class="form justify-content-center">
                             <div class="form-group">
                                 <label for="EventName" @if (!ModelState.IsValidField("EventName")) { <text> class="form-label" </text> }>Event Name</label>
@@ -146,17 +155,7 @@
 
 <div class="row justify-content-center">
 
-    @AntiForgery.GetHtml()
-    @* If at least one validation error exists, notify the user *@
-    @Html.ValidationSummary("Account creation was unsuccessful. Please correct the errors and try again.", excludeFieldErrors: true, htmlAttributes: null)
-
-    <fieldset>
-        <legend>Registration Form</legend>
-
-
-
-    </fieldset>
-
+    
 </div>
 
 
