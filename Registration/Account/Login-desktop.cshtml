@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="custom-style.css" type="text/css" />
+    <!--<link rel="stylesheet" href="custom-style.css" type="text/css" />-->
     <script type="text/javascript" src="custom.js"></script>
 
 
@@ -142,7 +142,7 @@
                                 </p>
                             </div>
                         </form>
-                   </div>
+                    </div>
 
                     <div class="separator"></div>
                     <div class="col-md-6 col-sm-6" id="sign-up">
@@ -152,7 +152,7 @@
                         </div>
                         @AntiForgery.GetHtml()
 
-                        <h1>Register </h1>
+                        <!--<h1>Register</h1>-->
                         @if (IsPost && Request.Form.Count > 4)
                         {
                             @Html.ValidationSummary("Account creation was unsuccessful. Please correct the errors and try again.", excludeFieldErrors: true, htmlAttributes: null)
@@ -229,7 +229,7 @@
                                                 // Navigate back to the homepage and exit
                                                 WebSecurity.Login(email, password);
 
-                                                Response.Redirect("~/");
+                                                Response.Redirect("~/Account/Register");
                                             }
                                         }
                                         catch (System.Web.Security.MembershipCreateUserException e)

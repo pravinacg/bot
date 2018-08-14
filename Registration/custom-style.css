@@ -7,9 +7,7 @@
     display: block;
 }*/
 
-.validation-summary-errors
-{
-    
+.validation-summary-errors {
 }
 
 .float-left {
@@ -24,20 +22,26 @@
     box-sizing: border-box;
     align-content: flex-end;
 }
+
 .row::after {
     content: "";
     clear: both;
     display: table;
 }
 
-.bg-img {
-  background-image: url("bg_overlay.png");
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;  
-  color:white;
+.logo-container {
+    float: right;
 }
+
+.bg-img {
+    background-image: url("bg_overlay.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+
 .form {
     padding: 20px 0;
     width: 80%;
@@ -45,13 +49,13 @@
 }
 
 form.signin {
-	padding: 20px 0;
-	width: 80%;
-	margin-bottom: 0px;
+    padding: 20px 0;
+    width: 80%;
+    margin-bottom: 0px;
 }
 
 form.signup {
-	width: 80%;
+    width: 80%;
 }
 
 validation-summary-errors ul {
@@ -80,266 +84,262 @@ form.signin input[type="submit"] {
 }
 
 form.signup input[type="submit"] {
-	width: 100%;
-	height: 50px;
-	background-color: #260F46;
-	color: #FFFFFF;
-	border: 0px;
-	font-size: 14px;
-	cursor: pointer;
-	letter-spacing: 1px;
+    width: 100%;
+    height: 50px;
+    background-color: #260F46;
+    color: #FFFFFF;
+    border: 0px;
+    font-size: 14px;
+    cursor: pointer;
+    letter-spacing: 1px;
 }
 
-.form-control:focus 
-{ 
-	border-color: inherit; 
-	-webkit-box-shadow: none !important; 
-	box-shadow: none !important;
+.form-control:focus {
+    border-color: inherit;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
 }
 
-.form-control{
-	background-color: transparent !important;
-	border: 0px;
-	border-radius: 0px;
-	outline: none;
-	color: #FFFFFF !important;
-	box-shadow: none;
-	padding-left: 15px;
+.form-control {
+    background-color: transparent !important;
+    border: 0px;
+    border-radius: 0px;
+    outline: none;
+    color: #FFFFFF !important;
+    box-shadow: none;
+    padding-left: 15px;
 }
 
-.forgot-password-wrapper{
-	color: #FFFFFF;
-	text-decoration: none;
-	text-align: center;
-	line-height: 45px;
+.forgot-password-wrapper {
+    color: #FFFFFF;
+    text-decoration: none;
+    text-align: center;
+    line-height: 45px;
 }
 
-.separator{
-	border-left: 1px solid white;
-	position: absolute;
-	height: 100%;
-	left: 45%;
+.separator {
+    border-left: 1px solid white;
+    position: absolute;
+    height: 100%;
+    left: 45%;
 }
 
-hr{
-	margin: 0px;
-	border: 0;
-	border-top: 1px solid #eee;
+hr {
+    margin: 0px;
+    border: 0;
+    border-top: 1px solid #eee;
 }
 
-.form-group{
-	margin-bottom: 0px;
+.form-group {
+    margin-bottom: 0px;
 }
 
-.site-logo{
-	width: 180px;
-	height: 40px;
+.site-logo {
+    width: 180px;
+    height: 40px;
 }
 
-.wrap{
-	padding-top: 5%;
-	width: 80%;
-	display: table;
-	margin: 0 auto;
-    color:white;
+.wrap {
+    padding-top: 5%;
+    width: 80%;
+    display: table;
+    margin: 0 auto;
+    color: white;
 }
 
-.signin-container{
-	display: table-cell;
-	width: 48%;
-	border-right: 1px solid #FFFFFF;
+.signin-container {
+    display: table-cell;
+    width: 48%;
+    border-right: 1px solid #FFFFFF;
 }
 
-.signup-container{
-	display: table-cell;
-	width: 48%;
+.signup-container {
+    display: table-cell;
+    width: 48%;
 }
 
-#sign-in-heading > p{
-	color: #FFFFFF;
-	font-size: 25px;
-	padding: 10px 0;
-	margin: 0px;
-}
-	
-.signin-form-heading{
-	color: #FFFFFF;
-	font-size: 19px;
-	padding: 20px 0;
+#sign-in-heading > p {
+    color: #FFFFFF;
+    font-size: 25px;
+    padding: 10px 0;
+    margin: 0px;
 }
 
-.signup-first-para{
-	color: #FFFFFF;
-	font-size: 25px;
-	margin: 0px;
-	letter-spacing: 1px;
-}
-	
-.form-heading{
-	color: #FFFFFF;
-	font-size: 19px;
-	padding: 10px 0;
+.signin-form-heading {
+    color: #FFFFFF;
+    font-size: 19px;
+    padding: 20px 0;
 }
 
-.form-label{
-	font-weight: 100;
-	color: #FFFFFF;
-	padding-left: 15px;
-	padding-top: 10px;
-	margin-bottom: 0px;
+.signup-first-para {
+    color: #FFFFFF;
+    font-size: 25px;
+    margin: 0px;
+    letter-spacing: 1px;
 }
 
-p.forgot-password a{
-	color: #FFFFFF;
+.form-heading {
+    color: #FFFFFF;
+    font-size: 19px;
+    padding: 10px 0;
 }
 
-legend{
-	color: #FFFFFF;
-	border: 0;
+.form-label {
+    font-weight: 100;
+    color: #FFFFFF;
+    padding-left: 15px;
+    padding-top: 10px;
+    margin-bottom: 0px;
 }
 
-#forgot-password{
-	margin-top: 20px;
+p.forgot-password a {
+    color: #FFFFFF;
 }
 
-#forgot-password-confirm{
-	margin-top: 20px;
-}
-	
-form.forgot-password{
-	width: 70%;
+legend {
+    color: #FFFFFF;
+    border: 0;
 }
 
-form.forgot-password-confirm{
-	width: 70%;
+#forgot-password {
+    margin-top: 20px;
 }
 
-.reset-button{
-	background-color: #260F46;
-	border: 0px;
-	color: #FFFFFF;
-	height: 50px;
-	width: 80%;
-	float: right;
+#forgot-password-confirm {
+    margin-top: 20px;
 }
 
-.reset-left-arrow{
-	float: left;
-	background-color: #260F46;
-	border: 0px;
-	color: #FFFFFF;
-	font-size: 25px;
-	height: 50px;
-	width: 15%;
+form.forgot-password {
+    width: 70%;
 }
 
-#mob-buttons{
-	display: none;
+form.forgot-password-confirm {
+    width: 70%;
 }
 
-.mob-back-button{
-	background-color: #260F46;
-	border: 0px;
-	color: #FFFFFF;
-	font-size: 15px;
-	height: 50px;
-	width: 50%;
-	float: left;
+.reset-button {
+    background-color: #260F46;
+    border: 0px;
+    color: #FFFFFF;
+    height: 50px;
+    width: 80%;
+    float: right;
 }
 
-.mob-reset-button{
-	background-color: #260F46;
-	border: 0px;
-	color: #FFFFFF;
-	font-size: 15px;
-	height: 50px;
-	width: 50%;
-	float: left;
+.reset-left-arrow {
+    float: left;
+    background-color: #260F46;
+    border: 0px;
+    color: #FFFFFF;
+    font-size: 25px;
+    height: 50px;
+    width: 15%;
 }
 
-.forgot-password-form{
-	margin-top: 25px;
+#mob-buttons {
+    display: none;
 }
 
-.robot{
-	height: 360px;
-	margin: auto;
-	display: block;
+.mob-back-button {
+    background-color: #260F46;
+    border: 0px;
+    color: #FFFFFF;
+    font-size: 15px;
+    height: 50px;
+    width: 50%;
+    float: left;
+}
+
+.mob-reset-button {
+    background-color: #260F46;
+    border: 0px;
+    color: #FFFFFF;
+    font-size: 15px;
+    height: 50px;
+    width: 50%;
+    float: left;
+}
+
+.forgot-password-form {
+    margin-top: 25px;
+}
+
+.robot {
+    height: 360px;
+    margin: auto;
+    display: block;
 }
 
 /* Customizing Bootstrap Tabs */
-.top-tab-container{
-	display: none;
+.top-tab-container {
+    display: none;
 }
 
-.nav-tabs
-{
-	border-color: #260F46;
-	border-radius: 0px;
-}
-
-.nav-tabs > li a { 
-    border: 0px;
-    background-color: #9D0B15; 
-    color:#fff;
-	border-radius: 0px;
-}
-
-.nav-tabs > li.active > a,
-.nav-tabs > li.active > a:focus,
-.nav-tabs > li.active > a:hover{
-    background-color: #260F46;
-    color: #FFF;
-    border: 0px;
-    border-bottom-color: transparent;
-	border-radius: 0px;
-}
-
-.nav-tabs > li > a:hover{
-	background-color: #260F46 !important;
-	border-radius: 0px;
-}
-
-.nav-tabs.nav-justified > .active > a, .nav-tabs.nav-justified > .active > a:focus, .nav-tabs.nav-justified > .active > a:hover {
-    border: none;
-}
-
-.nav-tabs.nav-justified > li > a {
-    border: 0px;
+.nav-tabs {
+    border-color: #260F46;
     border-radius: 0px;
 }
 
-.mob-separator{
-	border-right: 1px solid #FFFFFF;
+    .nav-tabs > li a {
+        border: 0px;
+        background-color: #9D0B15;
+        color: #fff;
+        border-radius: 0px;
+    }
+
+    .nav-tabs > li.active > a,
+    .nav-tabs > li.active > a:focus,
+    .nav-tabs > li.active > a:hover {
+        background-color: #260F46;
+        color: #FFF;
+        border: 0px;
+        border-bottom-color: transparent;
+        border-radius: 0px;
+    }
+
+    .nav-tabs > li > a:hover {
+        background-color: #260F46 !important;
+        border-radius: 0px;
+    }
+
+    .nav-tabs.nav-justified > .active > a, .nav-tabs.nav-justified > .active > a:focus, .nav-tabs.nav-justified > .active > a:hover {
+        border: none;
+    }
+
+    .nav-tabs.nav-justified > li > a {
+        border: 0px;
+        border-radius: 0px;
+    }
+
+.mob-separator {
+    border-right: 1px solid #FFFFFF;
     height: 60%;
     position: absolute;
     left: 50%;
     margin-top: 2%;
 }
 
-.forgot-password-container{
-	height: 50px;
+.forgot-password-container {
+    height: 50px;
 }
 
-.mob-logo-wrapper{
-	display: none;
+.mob-logo-wrapper {
+    display: none;
 }
 
-#sm-md-device-buttons{
-	margin-top: 20px;
+#sm-md-device-buttons {
+    margin-top: 20px;
 }
 
-p.forgot-password-wrapper > a{
-	color: #FFFFFF;
-	text-decoration: none;
+p.forgot-password-wrapper > a {
+    color: #FFFFFF;
+    text-decoration: none;
 }
 
 /* ----------- Desktops and laptops ----------- */
-@media only screen 
-and (min-width : 1224px) {
-
+@media only screen and (min-width : 1224px) {
 }
-	
+
 /* Media Queries for Tablet (portrait and landscape) */
 
 /*
@@ -348,159 +348,160 @@ and (min-width : 1224px) {
 */
 
 @media (min-width: 768px) and (max-width: 1024px) {
-	.robot{
-		height:10%;
-		vertical-align: top;
-	}
-		
-	.separator{
-		display: none;
-	}
-	
-	#sign-in{
-		margin-top: 20px;
-	}
-	
-	#sign-up{
-		margin-top: 20px;
-	}
-	
-	form.forgot-password{
-		width: 80%;
-	}
-	
-	form.forgot-password-confirm{
-		width: 80%;	
-	}
+    .robot {
+        height: 10%;
+        vertical-align: top;
+    }
+
+    .separator {
+        display: none;
+    }
+
+    #sign-in {
+        margin-top: 20px;
+    }
+
+    #sign-up {
+        margin-top: 20px;
+    }
+
+    form.forgot-password {
+        width: 80%;
+    }
+
+    form.forgot-password-confirm {
+        width: 80%;
+    }
 }
 
 /* Media Queries for all kind of low resolution tablets */
-@media only screen
-and (max-width : 768px){
-	.separator{
-		display: none;
-	}
+@media only screen and (max-width : 768px) {
+    .separator {
+        display: none;
+    }
 }
 
 /* Media Queries for all kind of Smart Phones */
-@media only screen
-and (max-width : 576px){
-	
-	/* Hide robot on all mobile devices */
-	.robot-container{
-		display:none;
-	}
-	
-	/* Hide left arrow on all mobile devices */
-	.reset-left-arrow{
-		display:none;
-	}
-		
-	.separator{
-		display: none;
-	}
-	
-	#sign-in-heading{
-		display: none;
-	}
-	
-	#sign-up-heading{
-		display: none;
-	}
-	
-	#legend-signin{
-		display: none;
-	}
-	
-	#signin-logo{
-		display: none;
-	}
-	
-	#forgot-password{
-		display: none;
-	}
-	
-	#forgot-password-confirm{
-		display: none;
-	}
-	
-	form{
-		border: 1px solid #FFFFF;
-	}
-	
-	form.signin{
-		width: 100%;
-		padding: 0px;
-		margin-bottom: 0px;
-		background-color: #EF6562;
-	}
-	
-	form.signup{
-		width: 100%;
-		margin-bottom: 0px;
-		background-color: #EF6562;
-	}
-	
-	form.forgot-password{
-		width: 100%;
-		background-color: #EF6562;
-	}
-	
-	form.forgot-password-confirm{
-		width: 100%;
-		background-color: #EF6562;		
-	}
-	
-	form{
-		border-top: 1px solid #FFFFFF;
-	}
-		
-	.wrap{
-		width: 100%;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		position: fixed;
-	}
-	
-	.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, 
-	.col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, 
-	.col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, 
-	.col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9{
-		padding: 0px;
-	}
-	
-	#mob-buttons{
-		display: block;
-	}
-	
-	#sm-md-device-buttons{
-		display: none;
-	}
-	
-	.logo{
-		display: none;
-	}
-	
-	.mob-logo-wrapper{
-		display: block;
-		text-align: center;
-		margin-top: 30%;
-	}
+@media only screen and (max-width : 576px) {
+
+    /* Hide robot on all mobile devices */
+    .robot-container {
+        display: none;
+    }
+
+    /* Hide left arrow on all mobile devices */
+    .reset-left-arrow {
+        display: none;
+    }
+
+    .separator {
+        display: none;
+    }
+
+    #sign-in-heading {
+        display: none;
+    }
+
+    #sign-up-heading {
+        display: none;
+    }
+
+    #legend-signin {
+        display: none;
+    }
+
+    #signin-logo {
+        display: none;
+    }
+
+    #forgot-password {
+        display: none;
+    }
+
+    #forgot-password-confirm {
+        display: none;
+    }
+
+    form {
+        border: 1px solid #FFFFFF;
+    }
+
+        form.signin {
+            width: 100%;
+            padding: 0px;
+            margin-bottom: 0px;
+            background-color: #EF6562;
+        }
+
+        form.signup {
+            width: 100%;
+            margin-bottom: 0px;
+            background-color: #EF6562;
+        }
+
+        form.forgot-password {
+            width: 100%;
+            background-color: #EF6562;
+        }
+
+        form.forgot-password-confirm {
+            width: 100%;
+            background-color: #EF6562;
+        }
+
+    form {
+        border-top: 1px solid #FFFFFF;
+    }
+
+    .wrap {
+        width: 100%;
+        /*  Styles were removed in order to reduce the gap created between wrap and mobile logo wrap container
+            bottom: 0;
+		    left: 0;
+		    right: 0;
+		    position: fixed;
+        */
+    }
+
+    .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9,
+    .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9,
+    .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9,
+    .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+        padding: 0px;
+    }
+
+    #mob-buttons {
+        display: block;
+    }
+
+    #sm-md-device-buttons {
+        display: none;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .mob-logo-wrapper {
+        display: block;
+        text-align: center;
+        padding: 20% 0px;
+    }
 }
 
-@media only screen and (max-width: 1024px){
-	.top-tab-container{
-		display: block;
-	}
+@media only screen and (max-width: 1024px) {
+    .top-tab-container {
+        display: block;
+    }
 }
 
 /* For stretching bootstrap tab entire device screen */
 ul {
-  display: flex;
-  height: 41px;
+    display: flex;
+    height: 41px;
 }
+
 li {
-  flex: 1 1 100%;
-  text-align: center;
+    flex: 1 1 100%;
+    text-align: center;
 }

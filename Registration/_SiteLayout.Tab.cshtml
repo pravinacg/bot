@@ -2,38 +2,75 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>@Page.Title - CI-CD demo</title>
+    <title>@Page.Title - My ASP.NET Web Page</title>
     <link href="~/Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    @*    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />*@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/jquery-ui-1.10.3.js"></script>
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/popper.min.js"></script>
+    <link rel="stylesheet" href="~/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="custom-style.css" type="text/css" />
+    <script type="text/javascript" src="custom.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta name="viewport" content="width=device-width" />
 </head>
-    <body>
+<body class="bg-img" style="background-image:url('bg_overlay.jpg')">
+    <div class="container">
         <header>
-            <div class="content-wrapper" style="height:5%;    text-align: center;align-content:center;padding-bottom:20px;">           
-
+            <div class="logo-container">
+                <div class="float-left">
+                    <!--<p class="site-title"><a href="~/">your logo here</a></p>-->
+                    <a href="~/"><img class="site-logo" src="site-logo.png" /></a>
+                </div>
+                <div class="float-right">
+                    <section id="login">
+                        @if (WebSecurity.IsAuthenticated)
+                        {
+                            <text>
+                                Hello, <a class="email" href="~/Account/Manage" title="Manage">@WebSecurity.CurrentUserName</a>!
+                                <form id="logoutForm" action="~/Account/Logout" method="post">
+                                    @AntiForgery.GetHtml()
+                                    <a href="javascript:document.getElementById('logoutForm').submit()">Log out</a>
+                                </form>
+                            </text>
+                        }
+                        else
+                        {
+                            <ul>
+                                @*<li><a href="~/Account/Register">Register</a></li>*@
+                                <li><a href="~/Account/Login-desktop">Log in</a></li>
+                            </ul>
+                        }
+                    </section>
+                    @*<nav>
+                            <ul id="menu">
+                                <li><a href="~/">Home</a></li>
+                                <li><a href="~/Account/Register">Registartion Pages</a></li>
+                                <li><a href="~/Contact">Contact</a></li>
+                            </ul>
+                        </nav>*@
+                </div>
             </div>
         </header>
-        <div id="body" style="padding-top:40px;">
+        <div id="body" class="container">
             @RenderSection("featured", required: false)
             <section class="content-wrapper main-content clear-fix">
-                    @RenderBody()
+                @RenderBody()
             </section>
         </div>
         <footer>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - Sogeti India demo pages</p>
+                    <p>&copy; @DateTime.Now.Year - My ASP.NET Web Page</p>
                 </div>
             </div>
         </footer>
-        @RenderSection("Scripts", required: false)
-    </body>
+    </div>
+    @RenderSection("Scripts", required: false)
+</body>
 </html>

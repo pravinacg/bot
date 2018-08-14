@@ -45,9 +45,13 @@
         Validation.RequireField("orgnisation", "You must specify Orgnisation Name.");
 
         Validation.Add("mobile", Validator.Integer("must be numeric"));
+
         Validation.Add("mobile",Validator.StringLength(maxLength: Int32.MaxValue,minLength: 10,errorMessage: "Mobile must be at least 9 characters"));
 
-
+        if( DateTime.Parse(eventdate) <= DateTime.Now)
+        {
+            Validation.AddFormError("Registratio date can not be past or todays date");
+        }
 
         if (Validation.IsValid())
         {
@@ -72,13 +76,15 @@
         }
 
     }
-}
+    }
 
 
-<hgroup class="col-sm-10 offset-sm-1 text-center">
-    @*<h1>@Page.Title.</h1>*@
-    <h2>Register for Event</h2>
-</hgroup>
+    <hgroup class="col-sm-10 offset-sm-1 text-center">
+        @*<h1>@Page.Title.</h1>*@
+        <h2>Register for Event</h2>
+     
+
+    </hgroup>
 
 
 <section id="cover">
@@ -91,11 +97,8 @@
                         @* If at least one validation error exists, notify the user *@
                         @Html.ValidationSummary("Registration was unsuccessful. Please correct the errors and try again.", excludeFieldErrors: true, htmlAttributes: null)
 
-                        <fieldset>
-                            <legend>Registration Form</legend>
-
-                       </fieldset>
-
+                        <br />
+                        <br />
                         <form method="post" style="color:white" class="form justify-content-center">
                             <div class="form-group">
                                 <label for="EventName" @if (!ModelState.IsValidField("EventName")) { <text> class="form-label" </text> }>Event Name</label>
@@ -103,19 +106,24 @@
                                 @* Write any email validation errors to the page *@
                                 @Html.ValidationMessage("eventname")
                             </div>
+                            <hr />
+
                             <div class="form-group">
                                 <label for="email" @if (!ModelState.IsValidField("email")) { <text> </text> }>Email address</label>
-                                <input type="text" id="email"  class="form-control transparent-input text-center" name="email" value="@email" @Validation.For("email") />
+                                <input type="text" id="email" class="form-control transparent-input text-center" name="email" value="@email" @Validation.For("email") />
                                 @* Write any email validation errors to the page *@
                                 @Html.ValidationMessage("email")
                             </div>
+                            <hr />
+
                             <div class="form-group">
                                 <label for="mobile" @if (!ModelState.IsValidField("mobile")) { <text> </text> }>Mobile</label>
                                 <input type="text" id="mobile" inputmode="numeric" maxlength="10" class="form-control transparent-input text-center"
-                                 name="mobile" value="@mobile" @Validation.For("mobile") />
+                                       name="mobile" value="@mobile" @Validation.For("mobile") />
                                 @* Write any email validation errors to the page *@
                                 @Html.ValidationMessage("mobile")
                             </div>
+                            <hr />
 
                             <div class="form-group">
 
@@ -124,21 +132,24 @@
                                 @* Write any password validation errors to the page *@
                                 @Html.ValidationMessage("Description")
                             </div>
+                            <hr />
 
                             <div class="form-group">
                                 <label for="Orgnisation" @if (!ModelState.IsValidField("Orgnisation")) { <text> class="form-label" </text> }>Orgnisation</label>
                                 <input type="text" id="Orgnisation" class="form-control transparent-input text-center" name="Orgnisation" @Validation.For("orgnisation") />
                                 @Html.ValidationMessage("Orgnisation")
                             </div>
+                            <hr />
 
                             <div class="form-group">
                                 <label for="eventDate" @if (!ModelState.IsValidField("eventdate")) { <text> class="form-label" </text> }> Event Date</label>
                                 <input type="date" class="form-control transparent-input text-center" id="EventDate" name="EventDate" @Validation.For("eventdate") />
                                 @Html.ValidationMessage("eventdate")
                             </div>
+                            <hr />
 
 
-                            <div class="message-info">
+                            @*<div class="message-info">
                                 <p>
                                     To enable CAPTCHA verification, <a href="https://go.microsoft.com/fwlink/?LinkId=204140">
                                         install the
@@ -149,16 +160,20 @@
                                     Register for reCAPTCHA keys at <a href="http://recaptcha.net">reCAPTCHA.net</a>.
                                 </p>
                             </div>
+                            <hr />*@
+                            <br />
+                            <br />
                             <div class="form-group">
                                 <input type="submit" class="btn btn-default" id="Register" name="Register" value="Register" />
                             </div>
+                            
 
 
                         </form>
                     </div>
                     <br>
                     <a href="#nav-main" class="btn btn-outline-secondary btn-sm" role="button">
-                        More
+                        
                     </a>
                 </div>
             </div>
